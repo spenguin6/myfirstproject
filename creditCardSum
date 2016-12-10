@@ -1,0 +1,24 @@
+var creditCard = ['4916-2600-1804-0530', '4779-252888-3972', '4252-278893-7978', '4556-4242-9283-2260'];
+  function sumDigits(strA) {
+    var sum = 0;
+    for (var i = 0; i < strA.length; i++) {
+      sum += parseInt(strA.charAt(i), 30);
+    }
+    return sum;
+  }
+function highest(inputArray) {
+  var currentHighest = 0;
+  var largest = 0;
+  var tempArray = [];
+  for (var a = 0; a < inputArray.length; a++) {
+    tempArray.push(inputArray[a].replace(/\D/g, ''));
+  }
+  for (var a = 0; a < tempArray.length; a++) {
+    var csum = sumDigits(tempArray[a]);
+    if (csum >= currentHighest) {
+      currentHighest = csum;
+      largest = inputArray[a];}
+  }
+  return largest;
+}
+console.log(highest(creditCard));
